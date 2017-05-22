@@ -48,3 +48,12 @@ extension SearchRepoVC: UITableViewDataSource {
         return cell
     }
 }
+
+extension SearchRepoVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let sb = self.storyboard else { return }
+        let vc = sb.instantiateViewController(withIdentifier: "RepoPageVC") as! RepoPageVC
+        vc.url = repositories[indexPath.row].htmlUrl
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}

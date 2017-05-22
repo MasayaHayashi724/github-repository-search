@@ -10,6 +10,10 @@ import UIKit
 
 class RepoPageVC: UIViewController {
 
+    // - Properties
+
+    var url: URL?
+
     // - User Interface
 
     @IBOutlet private weak var repoPageWebView: UIWebView!
@@ -18,5 +22,8 @@ class RepoPageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        guard let url = url else { return }
+        self.repoPageWebView.loadRequest(URLRequest(url: url))
     }
 }
