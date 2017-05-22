@@ -10,6 +10,13 @@ import UIKit
 
 class SearchRepoVC: UIViewController {
 
+    // - User Interface
+
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var repoTableView: UITableView!
+
+    // - View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

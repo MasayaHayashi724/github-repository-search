@@ -28,6 +28,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AHR-gg-IiD">
                                 <rect key="frame" x="0.0" y="108" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="xnE-ec-xT3"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="tmy-Zf-G6P"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -43,6 +47,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GitHub Repository Search" id="5T9-sm-XZ2"/>
+                    <connections>
+                        <outlet property="repoTableView" destination="AHR-gg-IiD" id="ofB-2n-yNs"/>
+                        <outlet property="searchBar" destination="D0M-0e-VKD" id="vZv-Hg-iHi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
