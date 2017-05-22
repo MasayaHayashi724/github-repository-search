@@ -13,6 +13,8 @@
 		57024CB11ED340A800C2434F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57024CB01ED340A800C2434F /* Assets.xcassets */; };
 		57024CB41ED340A800C2434F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57024CB21ED340A800C2434F /* LaunchScreen.storyboard */; };
 		57024CBE1ED3437F00C2434F /* RepoPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57024CBD1ED3437F00C2434F /* RepoPageVC.swift */; };
+		57024CC01ED34EB000C2434F /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57024CBF1ED34EB000C2434F /* GitHubAPI.swift */; };
+		57024CC21ED34FF000C2434F /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57024CC11ED34FF000C2434F /* JSONObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		57024CB31ED340A800C2434F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57024CB51ED340A800C2434F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57024CBD1ED3437F00C2434F /* RepoPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoPageVC.swift; sourceTree = "<group>"; };
+		57024CBF1ED34EB000C2434F /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		57024CC11ED34FF000C2434F /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				57024CB21ED340A800C2434F /* LaunchScreen.storyboard */,
 				57024CB51ED340A800C2434F /* Info.plist */,
 				57024CBD1ED3437F00C2434F /* RepoPageVC.swift */,
+				57024CBF1ED34EB000C2434F /* GitHubAPI.swift */,
+				57024CC11ED34FF000C2434F /* JSONObject.swift */,
 			);
 			path = "github-repo-search";
 			sourceTree = "<group>";
@@ -143,6 +149,8 @@
 				57024CAC1ED340A800C2434F /* SearchRepoVC.swift in Sources */,
 				57024CAA1ED340A800C2434F /* AppDelegate.swift in Sources */,
 				57024CBE1ED3437F00C2434F /* RepoPageVC.swift in Sources */,
+				57024CC01ED34EB000C2434F /* GitHubAPI.swift in Sources */,
+				57024CC21ED34FF000C2434F /* JSONObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
