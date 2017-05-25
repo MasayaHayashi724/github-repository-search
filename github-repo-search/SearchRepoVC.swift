@@ -22,11 +22,15 @@ class SearchRepoVC: UIViewController {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var repoTableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.isHidden = true
     }
 }
 
@@ -61,7 +65,9 @@ extension SearchRepoVC: UITableViewDelegate {
 extension SearchRepoVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.repositories.removeAll()
-        guard let query = searchBar.text else {
+        self.activityIndicator.startAnimating()
+        guard let query = searchBar.text, query != "" else {
+            self.activityIndicator.stopAnimating()
             return
         }
         SearchRepository(query: query).request { (result) in
@@ -70,6 +76,7 @@ extension SearchRepoVC: UISearchBarDelegate {
                 DispatchQueue.main.async {
                     self.repositories.removeAll()
                     self.repositories.append(contentsOf: response.items)
+                    self.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
                 print(error)

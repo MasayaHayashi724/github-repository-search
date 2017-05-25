@@ -57,7 +57,6 @@ extension Endpoint {
     fileprivate var urlRequest: URLRequest {
         var req = URLRequest(url: url)
         req.httpMethod = method.rawValue
-        req.cachePolicy = .reloadIgnoringLocalCacheData
         return req
     }
 }
