@@ -60,6 +60,7 @@ extension SearchRepoVC: UITableViewDataSource {
 
 extension SearchRepoVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let sb = self.storyboard else { return }
         let vc = sb.instantiateViewController(withIdentifier: "RepoPageVC") as! RepoPageVC
         vc.url = repositories[indexPath.row].htmlUrl
