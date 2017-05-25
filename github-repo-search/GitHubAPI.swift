@@ -39,11 +39,13 @@ struct Repository: JSONDecodable {
     let htmlUrl: URL
     let fullName: String
     let language: String?
+    let stargazersCount: Int
 
     init(JSON: JSONObject) throws {
         self.htmlUrl = try JSON.get("html_url")
         self.fullName = try JSON.get("full_name")
         self.language = try JSON.get("language")
+        self.stargazersCount = try JSON.get("stargazers_count")
     }
 }
 

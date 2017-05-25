@@ -49,6 +49,11 @@ extension SearchRepoVC: UITableViewDataSource {
         if let language = repositories[indexPath.row].language {
             cell.detailTextLabel?.text = language
         }
+        let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 22, height: 22))
+        starLabel.text = "★\(self.repositories[indexPath.row].stargazersCount)"
+        starLabel.textAlignment = .left
+        starLabel.sizeToFit()
+        cell.accessoryView = starLabel
         return cell
     }
 }
