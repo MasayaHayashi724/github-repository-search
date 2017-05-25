@@ -57,3 +57,23 @@ extension SearchRepoVC: UITableViewDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+extension SearchRepoVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.repositories.removeAll()
+        guard let query = searchBar.text else {
+            return
+        }
+        SearchRepository(query: query).request { (result) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.repositories.removeAll()
+                    self.repositories.append(contentsOf: response.items)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
