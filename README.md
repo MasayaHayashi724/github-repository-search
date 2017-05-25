@@ -20,7 +20,9 @@ Find GitHub repository by incremental search!
 
 ## Installation
 
-    git clone https://github.com/MasayaHayashi724/github-repository-search.git
+1. `git clone https://github.com/MasayaHayashi724/github-repository-search.git`
+2. Open `github-repo-search.xcodeproj`
+3. Build and Run app(`Cmd - R`)
 
 ## Author
 
