@@ -28,6 +28,13 @@ class RepoPageVC: UIViewController {
         self.activityIndicator.isHidden = true
         guard let url = url else { return }
         self.repoPageWebView.loadRequest(URLRequest(url: url))
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(self.openInSafari))
+    }
+
+    func openInSafari() {
+        guard let url = url else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 
