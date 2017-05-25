@@ -58,6 +58,7 @@ extension SearchRepoVC: UITableViewDelegate {
         guard let sb = self.storyboard else { return }
         let vc = sb.instantiateViewController(withIdentifier: "RepoPageVC") as! RepoPageVC
         vc.url = repositories[indexPath.row].htmlUrl
+        vc.title = repositories[indexPath.row].fullName
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
