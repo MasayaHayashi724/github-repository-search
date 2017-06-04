@@ -72,12 +72,9 @@ extension SearchRepoVC: UITableViewDelegate {
 extension SearchRepoVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.repositories.removeAll()
+        if searchText == "" { return }
         self.activityIndicator.startAnimating()
-        guard let query = searchBar.text, query != "" else {
-            self.activityIndicator.stopAnimating()
-            return
-        }
-        SearchRepository(query: query).request { (result) in
+        SearchRepository(query: searchText).request { (result) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
