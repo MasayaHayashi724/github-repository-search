@@ -17,6 +17,7 @@ class SearchRepoVC: UIViewController {
             self.repoTableView.reloadData()
         }
     }
+    var timer: Timer?
 
     // - User Interface
 
@@ -71,19 +72,22 @@ extension SearchRepoVC: UITableViewDelegate {
 
 extension SearchRepoVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        search(with: searchText)
+    }
+
+    private func search(with query: String) {
         self.repositories.removeAll()
-        if searchText == "" { return }
+        if query == "" { return }
         self.activityIndicator.startAnimating()
-        SearchRepository(query: searchText).request { (result) in
+        SearchRepository(query: query).request { (result) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    self.repositories.removeAll()
                     self.repositories.append(contentsOf: response.items)
                     self.activityIndicator.stopAnimating()
                 }
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
