@@ -21,7 +21,7 @@ class SearchRepoVC: UIViewController {
 
     // - User Interface
 
-    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet private weak var repoTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -72,11 +72,13 @@ extension SearchRepoVC: UITableViewDelegate {
 
 extension SearchRepoVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        search(with: searchText)
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.search), userInfo: nil, repeats: false)
     }
 
-    private func search(with query: String) {
+    func search() {
         self.repositories.removeAll()
+        guard let query = self.searchBar.text else { return }
         if query == "" { return }
         self.activityIndicator.startAnimating()
         SearchRepository(query: query).request { (result) in
